@@ -234,6 +234,10 @@ main {
   gap: clamp(36px, 7vw, 90px);
 }
 
+.hero-grid > * {
+  min-width: 0;
+}
+
 .eyebrow,
 .section-kicker {
   display: inline-flex;
@@ -269,22 +273,16 @@ main {
 
 .hero h1 .highlight {
   position: relative;
-  display: inline-block;
+  display: inline;
   color: var(--ink);
-  white-space: nowrap;
+  white-space: normal;
+  background: linear-gradient(transparent 70%, var(--lime) 70%);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 .hero h1 .highlight::after {
-  position: absolute;
-  right: 0;
-  bottom: 0.03em;
-  left: 0;
-  z-index: -1;
-  height: 0.27em;
-  border-radius: 999px;
-  background: var(--lime);
-  content: "";
-  transform: rotate(-1deg);
+  display: none;
 }
 
 .hero-intro {
@@ -448,12 +446,10 @@ a:hover .arrow {
 
 .metric:nth-child(2) {
   background: var(--blue);
-  transform: translateY(10px);
 }
 
 .metric:nth-child(3) {
   background: var(--lime);
-  transform: translateY(-4px);
 }
 
 .metric-value {
@@ -557,13 +553,13 @@ a:hover .arrow {
 
 .project-card.featured {
   grid-column: span 7;
-  min-height: 480px;
+  min-height: 380px;
   background: var(--mint);
 }
 
 .project-card.arcade-card {
   grid-column: span 5;
-  min-height: 480px;
+  min-height: 380px;
   background: var(--dark-soft);
   color: #fff;
 }
@@ -655,6 +651,7 @@ a:hover .arrow {
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
   background: var(--paper-strong);
+  color: var(--ink);
 }
 
 .bento-card h3 {
