@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="GaverArcade：Gaver 的游戏、互动网页与数字实验。">
+    <meta name="theme-color" content="#13221c">
+    <title>GaverArcade</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <script src="../assets/js/main.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到主要内容</a>
+    <header class="site-header">
+      <div class="shell nav-wrap">
+        <a class="brand" href="../" aria-label="Gaver 首页">
+          <span class="brand-mark" aria-hidden="true">G</span><span>Gaver</span>
+        </a>
+        <button class="menu-toggle" type="button" aria-label="打开导航" aria-expanded="false"><span></span></button>
+        <nav aria-label="主要导航">
+          <ul class="nav-links">
+            <li><a class="nav-link" href="../work/">Work</a></li>
+            <li><a class="nav-link" href="../notes/">Notes</a></li>
+            <li><a class="nav-link" href="../about/">About</a></li>
+            <li><a class="nav-link arcade-link" href="./" aria-current="page">Arcade · ON</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="arcade-hero">
+        <div class="shell">
+          <p class="eyebrow">Player one / Ready</p>
+          <h1>Gaver<br>Arcade</h1>
+          <p class="lead">
+            这是网站里更松弛的一面：小游戏、交互实验、像素角色，以及一些不需要先证明商业价值的想法。
+          </p>
+          <div class="hero-actions">
+            <a class="button lime" href="#machines">查看机器 ↓</a>
+            <a class="button secondary" href="../work/">返回职业项目</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="machines" aria-labelledby="machine-title">
+        <div class="shell">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Featured machine</p>
+              <h2 id="machine-title">先为已有游戏留好主舞台。</h2>
+            </div>
+            <p class="section-copy">下一步只需要把现有 GaverArcade 的 GitHub Pages 地址接入这里，就能从个人主页直接进入游戏。</p>
+          </div>
+
+          <div class="arcade-window reveal">
+            <div class="window-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+            <div class="window-content">
+              <div>
+                <p class="project-index">Machine 001</p>
+                <h2>GaverArcade</h2>
+                <p>游戏入口、封面图、操作说明和版本记录将在这里接入。当前框架不会假装链接已经存在。</p>
+                <div class="card-actions" style="justify-content:center">
+                  <span class="button secondary small" aria-disabled="true">游戏链接待接入</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section dark" aria-labelledby="cabinet-title">
+        <div class="shell">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Future cabinets</p>
+              <h2 id="cabinet-title">以后可以长出的东西。</h2>
+            </div>
+            <p class="section-copy">Arcade 不要求所有项目都完整或严肃，但每一台机器都应该能被真正点开和体验。</p>
+          </div>
+
+          <div class="note-grid">
+            <article class="note-card reveal">
+              <span class="note-date">CONCEPT · 01</span>
+              <h3>Budget Defender</h3>
+              <p>把预算约束变成游戏资源，在目标、风险与有限资金之间做选择。</p>
+            </article>
+            <article class="note-card reveal">
+              <span class="note-date">CONCEPT · 02</span>
+              <h3>Variance Hunter</h3>
+              <p>从不断刷新的费用记录里找出异常值，看看数据分析能否成为玩法。</p>
+            </article>
+            <article class="note-card reveal">
+              <span class="note-date">CONCEPT · 03</span>
+              <h3>Web Pet</h3>
+              <p>一只居住在网页角落里的像素宠物，跟随网站更新逐渐获得新行为。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="shell">
+          <div class="cta-panel reveal">
+            <div>
+              <p class="section-kicker">Insert coin</p>
+              <h2>Arcade 会慢慢开机。</h2>
+              <p>第一步是接入已有游戏，第二步是为每个实验增加封面、说明、版本和制作日志。</p>
+            </div>
+            <a class="button" href="../notes/">查看制作日志 →</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell">
+        <div class="footer-grid">
+          <div>
+            <a class="brand" href="../"><span class="brand-mark" aria-hidden="true">G</span><span>Gaver</span></a>
+            <p class="footer-statement">Games, experiments, and unnecessary little wonders.</p>
+          </div>
+          <nav class="footer-nav" aria-label="页脚导航">
+            <a href="../work/">Work</a><a href="./">Arcade</a><a href="../notes/">Notes</a><a href="../about/">About</a>
+          </nav>
+        </div>
+        <div class="footer-bottom"><span>© <span data-current-year></span> Gaver</span><span>Player one is still building.</span></div>
+      </div>
+    </footer>
+  </body>
+</html>

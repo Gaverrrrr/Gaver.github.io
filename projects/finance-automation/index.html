@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="费用与预算自动化分析案例框架：从分散数据到标准化财务分析流程。">
+    <meta name="theme-color" content="#f5f1e8">
+    <title>费用与预算自动化分析 — Gaver</title>
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <script src="../../assets/js/main.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到主要内容</a>
+    <header class="site-header">
+      <div class="shell nav-wrap">
+        <a class="brand" href="../../" aria-label="Gaver 首页"><span class="brand-mark" aria-hidden="true">G</span><span>Gaver</span></a>
+        <button class="menu-toggle" type="button" aria-label="打开导航" aria-expanded="false"><span></span></button>
+        <nav aria-label="主要导航">
+          <ul class="nav-links">
+            <li><a class="nav-link" href="../../work/" aria-current="page">Work</a></li>
+            <li><a class="nav-link" href="../../notes/">Notes</a></li>
+            <li><a class="nav-link" href="../../about/">About</a></li>
+            <li><a class="nav-link arcade-link" href="../../arcade/">Enter Arcade ↗</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="project-hero">
+        <div class="shell">
+          <p class="eyebrow">Case study framework · Finance Automation</p>
+          <h1>费用与预算<br>自动化分析</h1>
+          <p class="lead">将 ERP、差旅平台和多部门表格整合成可持续更新的财务数据流程，并将结果转化为预算偏差判断和经营沟通材料。</p>
+
+          <div class="project-facts reveal">
+            <div class="project-fact"><span>Role</span><strong>财务分析与流程搭建</strong></div>
+            <div class="project-fact"><span>Tools</span><strong>Python · Power Query · Power BI</strong></div>
+            <div class="project-fact"><span>Impact</span><strong>月度流程时间 -40%</strong></div>
+            <div class="project-fact"><span>Status</span><strong>公开脱敏版本制作中</strong></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="shell case-layout">
+          <nav class="case-nav" aria-label="案例目录">
+            <p>On this page</p>
+            <a href="#context">01 背景</a>
+            <a href="#problem">02 问题</a>
+            <a href="#approach">03 方法</a>
+            <a href="#impact">04 结果</a>
+            <a href="#next">05 下一步</a>
+          </nav>
+
+          <div class="case-content">
+            <section class="case-block" id="context">
+              <p class="section-kicker">01 / Context</p>
+              <h2>业务背景</h2>
+              <p>月度费用分析涉及 ERP、差旅报销平台以及多个部门维护的表格。不同来源在字段命名、日期格式、部门口径和费用分类上存在差异，汇总前需要反复人工整理与核对。</p>
+              <div class="privacy-note">
+                <strong>公开说明：</strong>本页目前是案例结构雏形。正式版本将使用模拟或脱敏数据重建，不公开企业内部金额、员工信息、系统账号和原始截图。
+              </div>
+            </section>
+
+            <section class="case-block" id="problem">
+              <p class="section-kicker">02 / Problem</p>
+              <h2>真正的问题不只是“表格太多”。</h2>
+              <ul>
+                <li>多个数据源缺乏统一字段和映射规则。</li>
+                <li>人工复制、匹配和汇总增加了错误风险。</li>
+                <li>每月重复处理相同步骤，分析时间被数据准备占用。</li>
+                <li>管理层需要趋势和偏差原因，而不是单纯的费用总额。</li>
+              </ul>
+            </section>
+
+            <section class="case-block" id="approach">
+              <p class="section-kicker">03 / Approach</p>
+              <h2>把一次性整理变成可重复的数据流程。</h2>
+              <div class="flow" aria-label="数据处理流程">
+                <div class="flow-step"><span>STEP 01</span><strong>导入 ERP、差旅平台与部门文件</strong></div>
+                <div class="flow-step"><span>STEP 02</span><strong>清洗字段、日期、分类与部门口径</strong></div>
+                <div class="flow-step"><span>STEP 03</span><strong>匹配预算并计算执行率与偏差</strong></div>
+                <div class="flow-step"><span>STEP 04</span><strong>生成月度报告与管理看板</strong></div>
+              </div>
+
+              <h3>方法分工</h3>
+              <p>Power Query 用于稳定、可追踪的表格导入与转换；Python 处理更灵活的批量清洗和输出；Power BI 负责指标展示、部门比较和趋势分析。</p>
+            </section>
+
+            <section class="case-block" id="impact">
+              <p class="section-kicker">04 / Impact</p>
+              <h2>结果需要同时说明效率与业务价值。</h2>
+              <ul>
+                <li>月度汇总与核对时间缩短约 40%。</li>
+                <li>标准化流程下数据准确率提升至约 99%。</li>
+                <li>支持识别销售部门差旅预算利用率过高问题。</li>
+                <li>相关优化建议帮助月度费用超支率降低约 18%。</li>
+              </ul>
+              <p>正式案例还需要补充指标口径、前后流程对比图、脱敏看板截图以及一个可以公开运行的简化 Demo。</p>
+            </section>
+
+            <section class="case-block" id="next">
+              <p class="section-kicker">05 / Next</p>
+              <h2>把真实经验重建成公开作品。</h2>
+              <ul>
+                <li>生成一套不包含企业信息的模拟费用数据。</li>
+                <li>重写 Python / Power Query 处理流程并补充注释。</li>
+                <li>建立 Power BI 星型模型与 DAX 指标。</li>
+                <li>录制 60—90 秒操作演示。</li>
+                <li>补充“我会怎样继续改进”部分。</li>
+              </ul>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <section class="section dark">
+        <div class="shell">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Case template</p>
+              <h2>这个页面以后也会成为其他项目的模板。</h2>
+            </div>
+            <p class="section-copy">人工成本、Power BI、SQL 和 AI Demo 都可以复用“背景—问题—方法—结果—反思”的结构。</p>
+          </div>
+          <a class="button lime" href="../../work/">返回项目列表 →</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell">
+        <div class="footer-grid">
+          <div><a class="brand" href="../../"><span class="brand-mark" aria-hidden="true">G</span><span>Gaver</span></a><p class="footer-statement">Finance, data, and things I build.</p></div>
+          <nav class="footer-nav" aria-label="页脚导航"><a href="../../work/">Work</a><a href="../../arcade/">Arcade</a><a href="../../notes/">Notes</a><a href="../../about/">About</a></nav>
+        </div>
+        <div class="footer-bottom"><span>© <span data-current-year></span> Gaver</span><span>Case data will be anonymized or synthetic.</span></div>
+      </div>
+    </footer>
+  </body>
+</html>
