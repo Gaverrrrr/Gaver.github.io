@@ -24,9 +24,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-
       - name: Prepare public files
         run: |
           mkdir _site
