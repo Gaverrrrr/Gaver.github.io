@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LetterLock</title>
+    <link rel="stylesheet" href="styles.css?v=38">
+  </head>
+  <body>
+    <canvas id="confetti" class="confetti" aria-hidden="true"></canvas>
+    <div id="unlock-effect" class="unlock-effect" aria-hidden="true">
+      <div class="unlock-backdrop"></div>
+      <div class="unlock-ring"></div>
+      <div class="unlock-label">BRAVO!</div>
+    </div>
+
+    <header class="topbar">
+      <a class="icon-button" href="../" aria-label="返回游乐场" title="返回游乐场">←</a>
+      <button class="icon-button" id="help-button" type="button" aria-label="查看规则" title="查看规则">?</button>
+      <div class="brand">
+        <h1>LetterLock</h1>
+      </div>
+      <div class="top-actions">
+        <button class="icon-button" id="stats-button" type="button" aria-label="查看统计" title="查看统计">▥</button>
+        <button class="icon-button" id="new-game-button" type="button" aria-label="重新开局" title="重新开局">↻</button>
+      </div>
+    </header>
+
+    <main class="shell">
+      <section class="game-panel" aria-label="LetterLock 游戏区">
+        <div class="mode-switch" role="group" aria-label="游戏模式">
+          <button class="mode-button" type="button" data-mode="daily">每日挑战</button>
+          <button class="mode-button" type="button" data-mode="practice">练习模式</button>
+        </div>
+        <div id="round-label" class="round-label">第 1 局</div>
+        <div id="board" class="board" aria-live="polite"></div>
+        <p id="message" class="message" role="status"></p>
+        <div id="keyboard" class="keyboard" aria-label="屏幕键盘"></div>
+      </section>
+
+      <section class="legend" aria-label="颜色说明">
+        <div class="legend-item">
+          <span class="legend-sample correct">A</span>
+          <div>
+            <strong>字母位置都对</strong>
+            <small>这个字母在本轮词语中，且位置正确</small>
+          </div>
+        </div>
+        <div class="legend-item">
+          <span class="legend-sample present">A</span>
+          <div>
+            <strong>字母对位置错</strong>
+            <small>这个字母在本轮词语中，但位置不对</small>
+          </div>
+        </div>
+        <div class="legend-item">
+          <span class="legend-sample absent">A</span>
+          <div>
+            <strong>答案没有此字母</strong>
+            <small>本轮词语不包含这个字母</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="result-panel" id="result-panel" hidden>
+        <p id="answer-line"></p>
+        <div class="word-info" id="word-info" hidden>
+          <div class="word-info-head">
+            <strong id="word-info-word"></strong>
+            <span id="word-info-level"></span>
+          </div>
+          <dl>
+            <div>
+              <dt>英文释义</dt>
+              <dd id="word-info-en"></dd>
+            </div>
+            <div>
+              <dt>中文含义</dt>
+              <dd id="word-info-zh"></dd>
+            </div>
+          </dl>
+        </div>
+        <button id="copy-button" type="button">分享结果</button>
+      </section>
+
+      <footer>
+        玩法参考 <a href="https://www.nytimes.com/games/wordle/index.html" target="_blank" rel="noreferrer">Wordle</a>
+      </footer>
+    </main>
+
+    <dialog id="help-dialog">
+      <div class="dialog-card">
+        <header>
+          <h2>规则</h2>
+          <button class="icon-button" id="close-help-button" type="button" aria-label="关闭规则" title="关闭">×</button>
+        </header>
+        <p>目标是猜出一个五个字母的英文单词。每次提交必须是词库里的五字母单词。</p>
+        <p>输入 5 个字母后，按实体键盘 Enter，或点击下方键盘上的 ENTER 提交。</p>
+        <p>每日挑战每天固定一个答案，最多猜 6 次；练习模式每局随机一个答案，最多猜 10 次，可以随时换题。</p>
+        <p>提交后每个格子会翻开给出颜色：绿色表示这个字母在本轮词语中，且位置正确；黄色表示这个字母在本轮词语中，但位置不对；灰色表示本轮词语不包含这个字母。</p>
+      </div>
+    </dialog>
+
+    <dialog id="stats-dialog">
+      <div class="dialog-card stats-card">
+        <header>
+          <h2>统计</h2>
+          <button class="icon-button" id="close-stats-button" type="button" aria-label="关闭统计" title="关闭">×</button>
+        </header>
+        <div class="stats-mode-switch mode-switch" role="group" aria-label="统计模式">
+          <button class="mode-button" type="button" data-stats-mode="daily">每日挑战</button>
+          <button class="mode-button" type="button" data-stats-mode="practice">练习模式</button>
+        </div>
+        <div class="stats-summary" aria-label="累计统计">
+          <div class="stat-box">
+            <strong id="stats-total">0</strong>
+            <span>总局数</span>
+          </div>
+          <div class="stat-box">
+            <strong id="stats-wins">0</strong>
+            <span>猜对</span>
+          </div>
+          <div class="stat-box">
+            <strong id="stats-losses">0</strong>
+            <span>猜错</span>
+          </div>
+          <div class="stat-box">
+            <strong id="stats-win-rate">0%</strong>
+            <span>胜率</span>
+          </div>
+          <div class="stat-box">
+            <strong id="stats-average">-</strong>
+            <span>平均步数</span>
+          </div>
+        </div>
+        <section class="distribution" aria-label="猜对步数分布">
+          <h3>猜对步数分布</h3>
+          <div id="guess-distribution" class="distribution-bars"></div>
+          <p id="stats-empty" class="stats-empty">猜对一局后这里会开始记录分布。</p>
+        </section>
+        <section class="daily-history" id="daily-history" aria-label="每日挑战历史" hidden>
+          <h3>每日挑战日历</h3>
+          <div class="daily-history-summary" aria-label="每日挑战连续记录">
+            <div class="daily-history-stat">
+              <strong id="daily-current-streak">0</strong>
+              <span>当前连续</span>
+            </div>
+            <div class="daily-history-stat">
+              <strong id="daily-best-streak">0</strong>
+              <span>最长连续</span>
+            </div>
+            <div class="daily-history-stat">
+              <strong id="daily-recent-wins">0/0</strong>
+              <span>近14天猜对</span>
+            </div>
+          </div>
+          <div id="daily-calendar" class="daily-calendar" aria-label="最近14天每日挑战日历"></div>
+          <div id="daily-history-list" class="daily-history-list" aria-label="最近每日挑战记录"></div>
+          <p id="daily-history-empty" class="stats-empty">完成每日挑战后这里会开始记录。</p>
+        </section>
+        <button id="reset-records-button" class="reset-records-button" type="button">清空本机记录</button>
+      </div>
+    </dialog>
+
+    <dialog id="share-dialog">
+      <div class="dialog-card share-card">
+        <header>
+          <h2>分享结果</h2>
+          <button class="icon-button" id="close-share-button" type="button" aria-label="关闭分享" title="关闭">×</button>
+        </header>
+        <div class="share-preview" aria-label="分享预览">
+          <div class="share-brand">LetterLock</div>
+          <p id="share-meta" class="share-meta"></p>
+          <strong id="share-score" class="share-score"></strong>
+          <div id="share-grid" class="share-grid" aria-hidden="true"></div>
+          <p class="share-note">不包含答案</p>
+        </div>
+        <button id="share-copy-button" class="share-copy-button" type="button">复制分享文案</button>
+        <p id="share-copy-status" class="share-copy-status" aria-live="polite"></p>
+      </div>
+    </dialog>
+
+    <script src="dictionary.js?v=7"></script>
+    <script src="word-info.js?v=2"></script>
+    <script src="game.js?v=56"></script>
+  </body>
+</html>
