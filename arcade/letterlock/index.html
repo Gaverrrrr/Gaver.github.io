@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>LetterLock</title>
-    <link rel="stylesheet" href="styles.css?v=38">
+    <link rel="stylesheet" href="styles.css?v=40">
   </head>
   <body>
     <canvas id="confetti" class="confetti" aria-hidden="true"></canvas>
@@ -15,12 +15,15 @@
     </div>
 
     <header class="topbar">
-      <a class="icon-button" href="../" aria-label="返回游乐场" title="返回游乐场">←</a>
-      <button class="icon-button" id="help-button" type="button" aria-label="查看规则" title="查看规则">?</button>
+      <div class="top-actions top-actions-left">
+        <a class="icon-button" href="../" aria-label="返回游乐场" title="返回游乐场">←</a>
+        <button class="icon-button" id="help-button" type="button" aria-label="查看规则" title="查看规则">?</button>
+      </div>
       <div class="brand">
         <h1>LetterLock</h1>
       </div>
       <div class="top-actions">
+        <button class="icon-button" id="theme-button" type="button" aria-label="切换深浅色模式" title="切换深浅色模式">☀</button>
         <button class="icon-button" id="stats-button" type="button" aria-label="查看统计" title="查看统计">▥</button>
         <button class="icon-button" id="new-game-button" type="button" aria-label="重新开局" title="重新开局">↻</button>
       </div>
@@ -182,6 +185,6 @@
 
     <script src="dictionary.js?v=7"></script>
     <script src="word-info.js?v=2"></script>
-    <script src="game.js?v=56"></script>
+    <script src="game.js?v=57"></script>
   </body>
 </html>
